@@ -61,7 +61,8 @@ func infocmd(opt Options) error {
 		vprintf("%v/%v/%v: getting information for the release\n", user, repo, tag)
 		release, err := ReleaseOfTag(user, repo, tag, token)
 		if err != nil {
-			return err
+			fmt.Println("No existing release for specified tag")
+			return
 		}
 		releases = []Release{*release}
 	}
