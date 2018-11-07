@@ -62,7 +62,7 @@ func infocmd(opt Options) error {
 		release, err := ReleaseOfTag(user, repo, tag, token)
 		if err != nil {
 			fmt.Println("No existing release for specified tag")
-			return
+			return nil
 		}
 		releases = []Release{*release}
 	}
