@@ -59,8 +59,8 @@ func infocmd(opt Options) error {
 	} else {
 		// Get only one release.
 		vprintf("%v/%v/%v: getting information for the release\n", user, repo, tag)
-		release, _ := ReleaseOfTag(user, repo, tag, token)
-		if release == nil {
+		release, err := ReleaseOfTag(user, repo, tag, token)
+		if err != nil || release == nil {
 			fmt.Println("No existing release for specified tag")
 			return nil
 		}
@@ -120,7 +120,7 @@ func uploadcmd(opt Options) error {
 
 	// Find the release corresponding to the entered tag, if any.
 	rel, err := ReleaseOfTag(user, repo, tag, token)
-	if err != nil {
+	if err != nil || rel == nil {
 		return err
 	}
 
@@ -225,7 +225,7 @@ func downloadcmd(opt Options) error {
 	} else {
 		rel, err = ReleaseOfTag(user, repo, tag, token)
 	}
-	if err != nil {
+	if err != nil || rel == nil {
 		return err
 	}
 

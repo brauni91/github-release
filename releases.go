@@ -129,7 +129,7 @@ func ReleaseOfTag(user, repo, tag, token string) (*Release, error) {
 /* find the release-id of the specified tag */
 func IdOfTag(user, repo, tag, token string) (int, error) {
 	release, err := ReleaseOfTag(user, repo, tag, token)
-	if err != nil {
+	if err != nil || release == nil {
 		return 0, err
 	}
 
