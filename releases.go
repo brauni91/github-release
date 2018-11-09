@@ -122,7 +122,6 @@ func ReleaseOfTag(user, repo, tag, token string) (*Release, error) {
 			return &release, nil
 		}
 	}
-	fmt.Println("could not find the release corresponding to tag")
 	return nil, nil
 }
 
