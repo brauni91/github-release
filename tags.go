@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/brauni91/github-release/github"
+	"github.com/obraunsdorf/github-release/github"
 )
 
 const (
